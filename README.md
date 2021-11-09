@@ -43,4 +43,4 @@ and delete this line from your `.zshrc` or `.bashrc` file
 ```bash
 $HOME/.memory-enhancer/memory
 ```
-but I really hope your PC crashes forever for abandoning me forever.
+but I really hope your PC crashes forever for abandoning me.
