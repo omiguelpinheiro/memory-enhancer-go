@@ -61,14 +61,9 @@ func ParseCfgFile(cfgName string) (tokenLen int, lineMax int, lineTol int) {
 
 func OptionValue(line string) (value int) {
 	sLine := strings.Split(line, "=")
-	param := sLine[0]
 	sVal := sLine[1]
 	val, err := strconv.Atoi(sVal)
 	check(err)
-	if val <= 0 {
-		fmt.Printf("Value %s should be greater than 0, you used %d\n", param, val)
-		os.Exit(1)
-	}
 	return val
 }
 
