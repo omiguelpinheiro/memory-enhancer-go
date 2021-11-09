@@ -52,7 +52,7 @@ func ParseCfgFile(cfgName string) (tokenLen int, lineMax int, lineTol int) {
 	if lineMax <= 0 {
 		log.Fatal(fmt.Sprintf("LINE_MAX can't be less or equals to 0, got %d", lineMax))
 	}
-	if tokenLen < 0 {
+	if lineTol < 0 {
 		log.Fatal(fmt.Sprintf("LINE_TOL can't be less than 0, got %d", lineTol))
 	}
 
