@@ -1,8 +1,10 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"math/rand"
+	"os"
 	"time"
 
 	"github.com/gopasspw/gopass/pkg/pwgen"
@@ -16,7 +18,8 @@ func main() {
 	history := OpenHistory()
 	defer history.Close()
 	runToday := RunToday(history)
-	tokenLen, lineMax, lineTol := ParseCfgFile("./memory.cfg")
+	memoryDir := MemoryFolder()
+	tokenLen, lineMax, lineTol := ParseCfgFile(fmt.Sprintf("%s/memory.cfg", memoryDir))
 	if runToday {
 		poemPath := getPoemPath(r)
 		token := pwgen.GeneratePassword(tokenLen, true)
@@ -24,4 +27,10 @@ func main() {
 		verse := Verse(r, lineMax, lineTol, poemPath)
 		WriteToHistory(history, token, title, author, verse)
 	}
+}
+
+func MemoryFolder() (home string) {
+	homeDir, err := os.UserHomeDir()
+	check(err)
+	return fmt.Sprintf("%s/.memory-enhancer", homeDir)
 }

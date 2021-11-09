@@ -11,11 +11,12 @@ import (
 )
 
 func getPoemPath(r *rand.Rand) (path string) {
-	langs, err := ioutil.ReadDir("./poems")
+	memoryDir := MemoryFolder()
+	langs, err := ioutil.ReadDir(fmt.Sprintf("%s/poems", memoryDir))
 	check(err)
 	i := r.Intn(len(langs))
 	lang := langs[i].Name()
-	langPath := fmt.Sprintf("./poems/%s", lang)
+	langPath := fmt.Sprintf("%s/poems/%s", memoryDir, lang)
 
 	poems, err := ioutil.ReadDir(langPath)
 	check(err)

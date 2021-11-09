@@ -20,9 +20,12 @@ func RunToday(history *os.File) bool {
 	s := backscanner.New(history, int(fi.Size()))
 	search := []byte("Date:")
 	pos, line, err := ReverseSearch(s, search)
+	if pos == -1 {
+		return true
+	}
 	lastDate := strings.Split(line, ":")[1]
 	curDate := time.Now().Format("2006-01-02")
-	if lastDate < curDate || pos == -1 {
+	if lastDate < curDate {
 		return true
 	} else {
 		return false
@@ -55,14 +58,9 @@ func ReverseSearch(scanner *backscanner.Scanner, search []byte) (position int, l
 	}
 }
 
-func OpenFile() (history *os.File) {
-	history, err := os.OpenFile("./history", os.O_APPEND|os.O_RDWR|os.O_CREATE, 0600)
-	check(err)
-	return history
-}
-
 func OpenHistory() (history *os.File) {
-	history, err := os.OpenFile("./history", os.O_APPEND|os.O_RDWR|os.O_CREATE, 0600)
+	memoryDir := MemoryFolder()
+	history, err := os.OpenFile(fmt.Sprintf("%s/history", memoryDir), os.O_APPEND|os.O_RDWR|os.O_CREATE, 0600)
 	check(err)
 	return history
 }
