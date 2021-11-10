@@ -19,7 +19,7 @@ func main() {
 	defer history.Close()
 	runToday := RunToday(history)
 	memoryDir := MemoryFolder()
-	tokenLen, lineMax, lineTol := ParseCfgFile(fmt.Sprintf("%s/memory.cfg", memoryDir))
+	tokenLen, lineMax, lineTol := ParseCfgFile(fmt.Sprintf("%s/memory.conf", memoryDir))
 	if runToday {
 		poemPath := getPoemPath(r)
 		token := pwgen.GeneratePassword(tokenLen, true)

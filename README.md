@@ -28,7 +28,7 @@ sudo chmod +w "$HOME/.memory-enhancer/memory"
 ```
 And that's it, you're good to go. Also, did you know that Jupiter is twice as massive as all of the other planets of the solar system combined? So, yeah ... if you're here to memorize useless facts I think this proves you're a little step closer to success.
 ## Options
-The script also comes with 3 parameters that you can play with and can be changed in the `memory.cfg` file located in the installation folder `.memory-enhancer` located in your home directory. Change the following options to modify:
+The script also comes with 3 parameters that you can play with and can be changed in the `memory.conf` file located in the installation folder `.memory-enhancer` located in your home directory. Change the following options to modify:
 ```
 TOKEN_LENGHT -> size of the token (default is 4)
 LINE_MAX -> lines in the piece of poem (default is 2)
