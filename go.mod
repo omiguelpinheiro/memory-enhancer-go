@@ -3,6 +3,7 @@ module memory-enhancer/main
 go 1.17
 
 require (
+	github.com/go-errors/errors v1.4.1
 	github.com/gopasspw/gopass v1.12.8
 	github.com/icza/backscanner v0.0.0-20210726202459-ac2ffc679f94
 )

@@ -10,18 +10,19 @@ import (
 	"strings"
 )
 
-func getPoemPath(r *rand.Rand) (path string) {
-	memoryDir := MemoryFolder()
-	langs, err := ioutil.ReadDir(fmt.Sprintf("%s/poems", memoryDir))
+func getPoemPath(installFolder string, randomizer *rand.Rand) (path string) {
+	poemsPath := fmt.Sprintf("%s/poems", installFolder)
+	langs, err := ioutil.ReadDir(poemsPath)
 	check(err)
-	i := r.Intn(len(langs))
+
+	i := randomizer.Intn(len(langs))
 	lang := langs[i].Name()
-	langPath := fmt.Sprintf("%s/poems/%s", memoryDir, lang)
+	langPath := fmt.Sprintf("%s/poems/%s", installFolder, lang)
 
 	poems, err := ioutil.ReadDir(langPath)
 	check(err)
-	poem_index := r.Intn(len(poems))
-	poem := poems[poem_index].Name()
+	poemIndex := randomizer.Intn(len(poems))
+	poem := poems[poemIndex].Name()
 	return fmt.Sprintf("%s/%s", langPath, poem)
 }
 
@@ -34,7 +35,9 @@ func TitleAuthorFromPath(path string) (title string, author string) {
 	return title, author
 }
 
-func Verse(r *rand.Rand, lineMax int, lineTol int, poemPath string) (verse []string) {
+func Verse(r *rand.Rand, opt map[string]int, poemPath string) (verse []string) {
+	lineMax := opt["lineMax"]
+	lineTol := opt["lineTol"]
 	lines, verses := LinesVersesFromFile(poemPath)
 	indexes := r.Perm(len(verses))
 	lower := lineMax - lineTol
