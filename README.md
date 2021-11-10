@@ -7,10 +7,10 @@ Every day when you first open your terminal you will be greated with a token and
 ## Install
 The installation process can be done in two ways, through a bash script or compilation from source. Both steps **MUST FOLLOW** the last steps section.
 
-### Cloning
-The easiest way to install is just cloning the repository to the default installation folder
+### Script
+The easiest way to install is to just run this script
 ```bash
-git clone https://github.com/omiguelpinheiro/memory-enhancer.git "$HOME/.memory-enhancer"
+FILE="$HOME/.memory-enhancer.tar.gz";FOLDER="$HOME/.memory-enhancer" && curl -L https://github.com/omiguelpinheiro/memory-enhancer/releases/latest/download/memory-enhancer.tar.gz --output "$FILE" && mkdir "$FOLDER" && tar -xzf "$FILE" -C "$FOLDER" && rm "$FILE"
 ```
 ### Compiling from source
 You can also compile the code from source using
