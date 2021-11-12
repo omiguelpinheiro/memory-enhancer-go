@@ -1,4 +1,4 @@
-# memory-enhancer
+# memory-enhancer-go
 Helps exercise your memory by giving you random tokens and poems to memorize.
 
 ## Using
@@ -10,12 +10,12 @@ The installation process can be done in two ways, through a bash script or compi
 ### Script
 The easiest way to install is to just run this script
 ```bash
-FILE="$HOME/.memory-enhancer.tar.gz";FOLDER="$HOME/.memory-enhancer" && curl -L https://github.com/omiguelpinheiro/memory-enhancer/releases/latest/download/memory-enhancer.tar.gz --output "$FILE" && mkdir "$FOLDER" && tar -xzf "$FILE" -C "$FOLDER" && rm "$FILE"
+FILE="$HOME/.memory-enhancer.tar.gz";FOLDER="$HOME/.memory-enhancer" && curl -L https://github.com/omiguelpinheiro/memory-enhancer-go/releases/latest/download/memory-enhancer.tar.gz --output "$FILE" && mkdir "$FOLDER" && tar -xzf "$FILE" -C "$FOLDER" && rm "$FILE"
 ```
 ### Compiling from source
 You can also compile the code from source using
 ```bash
-git clone https://github.com/omiguelpinheiro/memory-enhancer.git "$HOME/.memory-enhancer" && go build -o "$HOME/.memory-enhancer/memory" "$HOME/.memory-enhancer/main"
+git clone https://github.com/omiguelpinheiro/memory-enhancer-go.git "$HOME/.memory-enhancer" && go build -o "$HOME/.memory-enhancer/memory" "$HOME/.memory-enhancer/main"
 ```
 ### Last steps
 You **MUST** configure your `.zshrc` or `.bashrc` file in order for the program to work, run this switching `.zshrc` for `.bashrc` if you're using bash
