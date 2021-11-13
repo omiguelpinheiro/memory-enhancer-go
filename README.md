@@ -24,7 +24,7 @@ echo "$HOME/.memory-enhancer/memory" >> "$HOME/.zshrc"
 ```
 also, your operating system, as the good boy he is, may block you from executing the *potentially dangerous* program you just downloaded from my repository by giving you a `permission denied` error when trying to execute it. You can fix this, not at all surprisingly, by giving the binaries permission to execute. Use this command if you get the error
 ```bash
-sudo chmod +w "$HOME/.memory-enhancer/memory"
+sudo chmod +x "$HOME/.memory-enhancer/memory"
 ```
 And that's it, you're good to go. Also, did you know that Jupiter is twice as massive as all of the other planets of the solar system combined? So, yeah ... if you're here to memorize useless facts I think this proves you're a little step closer to success.
 ## Options
